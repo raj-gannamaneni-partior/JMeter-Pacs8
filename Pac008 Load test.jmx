@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.2">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Pac008 Load test" enabled="true">
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath">/home/user/Documents/postgresql-42.6.0.jar</stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Message processor db configuration" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="Database" elementType="Argument">
+            <stringProp name="Argument.name">Database</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.value">message_processor</stringProp>
+          </elementProp>
+          <elementProp name="DatabaseHost" elementType="Argument">
+            <stringProp name="Argument.name">DatabaseHost</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.value">127.0.0.1</stringProp>
+          </elementProp>
+          <elementProp name="DatabaseUser" elementType="Argument">
+            <stringProp name="Argument.name">DatabaseUser</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.value">user</stringProp>
+          </elementProp>
+          <elementProp name="DatabasePassword" elementType="Argument">
+            <stringProp name="Argument.name">DatabasePassword</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.value">password</stringProp>
+          </elementProp>
+          <elementProp name="DatabasePort" elementType="Argument">
+            <stringProp name="Argument.name">DatabasePort</stringProp>
+            <stringProp name="Argument.value">3307</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DriverURL" elementType="Argument">
+            <stringProp name="Argument.name">DriverURL</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.value">jdbc:postgresql</stringProp>
+          </elementProp>
+          <elementProp name="JPM-SG" elementType="Argument">
+            <stringProp name="Argument.name">JPM-SG</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.value">CHASSGSGXXX</stringProp>
+          </elementProp>
+          <elementProp name="JPM-SG-PTR" elementType="Argument">
+            <stringProp name="Argument.name">JPM-SG-PTR</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.value">CHASSGSGPTR</stringProp>
+          </elementProp>
+          <elementProp name="date" elementType="Argument">
+            <stringProp name="Argument.name">date</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ref" elementType="Argument">
+            <stringProp name="Argument.name">ref</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.value">2100</stringProp>
+          </elementProp>
+          <elementProp name="DBS" elementType="Argument">
+            <stringProp name="Argument.name">DBS</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.value">DBSSSGSGXXX</stringProp>
+          </elementProp>
+          <elementProp name="JPM-NY" elementType="Argument">
+            <stringProp name="Argument.name">JPM-NY</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.value">CHASUS33MCY</stringProp>
+          </elementProp>
+          <elementProp name="refCounter" elementType="Argument">
+            <stringProp name="Argument.name">refCounter</stringProp>
+            <stringProp name="Argument.value">2100</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="POLLING_SESSION_STATUS" elementType="Argument">
+            <stringProp name="Argument.name">POLLING_SESSION_STATUS</stringProp>
+            <stringProp name="Argument.value">PENDING</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
+        <boolProp name="autocommit">false</boolProp>
+        <stringProp name="checkQuery"></stringProp>
+        <stringProp name="connectionAge">5000</stringProp>
+        <stringProp name="connectionProperties"></stringProp>
+        <stringProp name="dataSource">Test_Pool</stringProp>
+        <stringProp name="dbUrl">${DriverURL}://${DatabaseHost}:${DatabasePort}/${Database}</stringProp>
+        <stringProp name="driver">org.postgresql.Driver</stringProp>
+        <stringProp name="initQuery"></stringProp>
+        <boolProp name="keepAlive">false</boolProp>
+        <stringProp name="password">password</stringProp>
+        <stringProp name="poolMax">0</stringProp>
+        <boolProp name="preinit">false</boolProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <stringProp name="username">user</stringProp>
+        <stringProp name="TestPlan.comments">Connect to local message processor sg instance to verify the Admin.007</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">stoptest</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <stringProp name="LoopController.loops">5</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Pacs8 Request" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;payload&quot;: {&#xd;
+        &quot;BusMsg&quot;: {&#xd;
+            &quot;AppHdr&quot;: {&#xd;
+                &quot;xmlns&quot;: &quot;head.001.001.02&quot;,&#xd;
+                &quot;Fr&quot;: {&#xd;
+                    &quot;FIId&quot;: {&#xd;
+                        &quot;FinInstnId&quot;: {&#xd;
+                            &quot;BICFI&quot;: &quot;${JPM-SG}&quot;&#xd;
+                        }&#xd;
+                    }&#xd;
+                },&#xd;
+                &quot;To&quot;: {&#xd;
+                    &quot;FIId&quot;: {&#xd;
+                        &quot;FinInstnId&quot;: {&#xd;
+                            &quot;BICFI&quot;: &quot;${JPM-SG-PTR}&quot;&#xd;
+                        }&#xd;
+                    }&#xd;
+                },&#xd;
+                &quot;BizMsgIdr&quot;: &quot;PCHASSGSGXXX120230718000000123${ref}&quot;,&#xd;
+                &quot;MsgDefIdr&quot;: &quot;pacs.008.001.09&quot;,&#xd;
+                &quot;CreDt&quot;: &quot;2021-06-01T12:12:12.123Z&quot;&#xd;
+            },&#xd;
+            &quot;Document&quot;: {&#xd;
+                &quot;FIToFICstmrCdtTrf&quot;: {&#xd;
+                    &quot;GrpHdr&quot;: {&#xd;
+                        &quot;MsgId&quot;: &quot;PCHASSGSGXXX120230718000000123${ref}&quot;,&#xd;
+                        &quot;CreDtTm&quot;: &quot;2021-06-23T13:24:48.401Z&quot;,&#xd;
+                        &quot;NbOfTxs&quot;: &quot;1&quot;,&#xd;
+                        &quot;TtlIntrBkSttlmAmt&quot;: {&#xd;
+                            &quot;Amount&quot;: &quot;10.01&quot;,&#xd;
+                            &quot;Ccy&quot;: &quot;USD&quot;&#xd;
+                        },&#xd;
+                        &quot;SttlmInf&quot;: {&#xd;
+                            &quot;SttlmMtd&quot;: &quot;CLRG&quot;,&#xd;
+                            &quot;ClrSys&quot;: {&#xd;
+                                &quot;Prtry&quot;: &quot;Partior&quot;&#xd;
+                            }&#xd;
+                        },&#xd;
+                        &quot;InstdAgt&quot;: {&#xd;
+                            &quot;FinInstnId&quot;: {&#xd;
+                                &quot;BICFI&quot;: &quot;${DBS}&quot;&#xd;
+                            }&#xd;
+                        },&#xd;
+                        &quot;InstgAgt&quot;: {&#xd;
+                            &quot;FinInstnId&quot;: {&#xd;
+                                &quot;BICFI&quot;: &quot;${JPM-SG}&quot;&#xd;
+                            }&#xd;
+                        }&#xd;
+                    },&#xd;
+                    &quot;CdtTrfTxInf&quot;: {&#xd;
+                        &quot;PmtId&quot;: {&#xd;
+                            &quot;ClrSysRef&quot;: &quot;Partior&quot;,&#xd;
+                            &quot;InstrId&quot;: &quot;INSTRDSG1${ref}0000${ref}&quot;,&#xd;
+                            &quot;TxId&quot;: &quot;str${ref}&quot;,&#xd;
+                            &quot;UETR&quot;: &quot;payment-83a9-4a19-asdf-78dacbb8${ref}&quot;,&#xd;
+                            &quot;EndToEndId&quot;: &quot;${ref}&quot;&#xd;
+                        },&#xd;
+                        &quot;PmtTpInf&quot;: {&#xd;
+                            &quot;CtgyPurp&quot;: {&#xd;
+                                &quot;Cd&quot;: &quot;OTHR&quot;,&#xd;
+                                &quot;Prtry&quot;: &quot;Partior&quot;&#xd;
+                            },&#xd;
+                            &quot;LclInstrm&quot;: {&#xd;
+                                &quot;Cd&quot;: &quot;OTHR&quot;,&#xd;
+                                &quot;Prtry&quot;: &quot;Partior&quot;&#xd;
+                            },&#xd;
+                            &quot;SvcLvl&quot;: {&#xd;
+                                &quot;Cd&quot;: &quot;SDVA&quot;&#xd;
+                            }&#xd;
+                        },&#xd;
+                        &quot;IntrBkSttlmAmt&quot;: {&#xd;
+                            &quot;Amount&quot;: &quot;10.01&quot;,&#xd;
+                            &quot;Ccy&quot;: &quot;USD&quot;&#xd;
+                        },&#xd;
+                        &quot;InstdAmt&quot;: {&#xd;
+                            &quot;Amount&quot;: &quot;10.01&quot;,&#xd;
+                            &quot;Ccy&quot;: &quot;USD&quot;&#xd;
+                        },&#xd;
+                        &quot;IntrBkSttlmDt&quot;: &quot;2021-07-15&quot;,&#xd;
+                        &quot;ChrgBr&quot;: &quot;SLEV&quot;,&#xd;
+                        &quot;ChrgsInf&quot;: [&#xd;
+                            {&#xd;
+                                &quot;Agt&quot;: {&#xd;
+                                    &quot;FinInstnId&quot;: {&#xd;
+                                        &quot;BICFI&quot;: &quot;${JPM-SG}&quot;&#xd;
+                                    }&#xd;
+                                },&#xd;
+                                &quot;Amt&quot;: {&#xd;
+                                    &quot;Amount&quot;: &quot;10.01&quot;,&#xd;
+                                    &quot;Ccy&quot;: &quot;USD&quot;&#xd;
+                                }&#xd;
+                            }&#xd;
+                        ],&#xd;
+                        &quot;InstdAgt&quot;: {&#xd;
+                            &quot;FinInstnId&quot;: {&#xd;
+                                &quot;BICFI&quot;: &quot;${DBS}&quot;&#xd;
+                            }&#xd;
+                        },&#xd;
+                        &quot;InstgAgt&quot;: {&#xd;
+                            &quot;FinInstnId&quot;: {&#xd;
+                                &quot;BICFI&quot;: &quot;${JPM-SG}&quot;&#xd;
+                            }&#xd;
+                        },&#xd;
+                        &quot;IntrmyAgt1&quot;: {&#xd;
+                            &quot;FinInstnId&quot;: {&#xd;
+                                &quot;BICFI&quot;: &quot;${JPM-NY}&quot;&#xd;
+                            }&#xd;
+                        },&#xd;
+                        &quot;Dbtr&quot;: {&#xd;
+                            &quot;Nm&quot;: &quot;JASON FOO&quot;,&#xd;
+                            &quot;PstlAdr&quot;: {&#xd;
+                                &quot;BldgNb&quot;: &quot;bldgnb&quot;,&#xd;
+                                &quot;Dept&quot;: &quot;Dept1234&quot;,&#xd;
+                                &quot;AdrLine&quot;: [&#xd;
+                                    &quot;NGEE ANN CITY&quot;,&#xd;
+                                    &quot;500 ORCHARD ROAD&quot;,&#xd;
+                                    &quot;SINGAPORE 500000&quot;&#xd;
+                                ],&#xd;
+                                &quot;AdrTp&quot;: {&#xd;
+                                    &quot;Cd&quot;: &quot;DEPT&quot;&#xd;
+                                },&#xd;
+                                &quot;BldgNm&quot;: &quot;bldgNm&quot;,&#xd;
+                                &quot;Flr&quot;: &quot;floor&quot;,&#xd;
+                                &quot;CtrySubDvsn&quot;: &quot;CountryName&quot;,&#xd;
+                                &quot;PstCd&quot;: &quot;postalcode&quot;,&#xd;
+                                &quot;SubDept&quot;: &quot;SubDept1234&quot;,&#xd;
+                                &quot;StrtNm&quot;: &quot;streetName&quot;,&#xd;
+                                &quot;Ctry&quot;: &quot;SINGAPORE&quot;,&#xd;
+                                &quot;PstBx&quot;: &quot;postbox&quot;,&#xd;
+                                &quot;TwnLctnNm&quot;: &quot;TownLocationNm&quot;,&#xd;
+                                &quot;Room&quot;: &quot;room&quot;,&#xd;
+                                &quot;TwnNm&quot;: &quot;TownName&quot;,&#xd;
+                                &quot;DstrctNm&quot;: &quot;DistrictName&quot;&#xd;
+                            }&#xd;
+                        },&#xd;
+                        &quot;DbtrAcct&quot;: {&#xd;
+                            &quot;Id&quot;: {&#xd;
+                                &quot;Othr&quot;: {&#xd;
+                                    &quot;Id&quot;: &quot;str${ref}&quot;&#xd;
+                                }&#xd;
+                            }&#xd;
+                        },&#xd;
+                        &quot;DbtrAgt&quot;: {&#xd;
+                            &quot;FinInstnId&quot;: {&#xd;
+                                &quot;BICFI&quot;: &quot;${JPM-SG}&quot;&#xd;
+                            }&#xd;
+                        },&#xd;
+                        &quot;CdtrAgt&quot;: {&#xd;
+                            &quot;FinInstnId&quot;: {&#xd;
+                                &quot;BICFI&quot;: &quot;${DBS}&quot;&#xd;
+                            }&#xd;
+                        },&#xd;
+                        &quot;Cdtr&quot;: {&#xd;
+                            &quot;Nm&quot;: &quot;CINDY TEO&quot;,&#xd;
+                            &quot;PstlAdr&quot;: {&#xd;
+                                &quot;BldgNb&quot;: &quot;cbldgnb&quot;,&#xd;
+                                &quot;Dept&quot;: &quot;cDept1234&quot;,&#xd;
+                                &quot;AdrLine&quot;: [&#xd;
+                                    &quot;NGEE ANN CITY&quot;,&#xd;
+                                    &quot;500 ORCHARD ROAD&quot;,&#xd;
+                                    &quot;SINGAPORE 500000&quot;&#xd;
+                                ],&#xd;
+                                &quot;AdrTp&quot;: {&#xd;
+                                    &quot;Cd&quot;: &quot;DEPT&quot;&#xd;
+                                },&#xd;
+                                &quot;BldgNm&quot;: &quot;cbldgNm&quot;,&#xd;
+                                &quot;Flr&quot;: &quot;cfloor&quot;,&#xd;
+                                &quot;CtrySubDvsn&quot;: &quot;cCountryName&quot;,&#xd;
+                                &quot;PstCd&quot;: &quot;cpostalcode&quot;,&#xd;
+                                &quot;SubDept&quot;: &quot;cSubDept1234&quot;,&#xd;
+                                &quot;StrtNm&quot;: &quot;cstreetName&quot;,&#xd;
+                                &quot;Ctry&quot;: &quot;SINGAPORE&quot;,&#xd;
+                                &quot;PstBx&quot;: &quot;cpostbox&quot;,&#xd;
+                                &quot;TwnLctnNm&quot;: &quot;cTownLocationNm&quot;,&#xd;
+                                &quot;Room&quot;: &quot;croom&quot;,&#xd;
+                                &quot;TwnNm&quot;: &quot;cTownName&quot;,&#xd;
+                                &quot;DstrctNm&quot;: &quot;cDistrictName&quot;&#xd;
+                            }&#xd;
+                        },&#xd;
+                        &quot;CdtrAcct&quot;: {&#xd;
+                            &quot;Id&quot;: {&#xd;
+                                &quot;Othr&quot;: {&#xd;
+                                    &quot;Id&quot;: &quot;1${ref}7feCe6&quot;&#xd;
+                                }&#xd;
+                            }&#xd;
+                        },&#xd;
+                        &quot;Purp&quot;: {&#xd;
+                            &quot;Cd&quot;: &quot;OTHR&quot;&#xd;
+                        },&#xd;
+                        &quot;RmtInf&quot;: {&#xd;
+                            &quot;Ustrd&quot;: [&#xd;
+                                &quot;INV/0009889999&quot;,&#xd;
+                                &quot;ADDITIONAL INFO1&quot;,&#xd;
+                                &quot;ADDITIONAL INFO2&quot;,&#xd;
+                                &quot;ADDITIONAL INFO3&quot;&#xd;
+                            ]&#xd;
+                        }&#xd;
+                    }&#xd;
+                }&#xd;
+            }&#xd;
+        }&#xd;
+    },&#xd;
+    &quot;issuer&quot;: &quot;${JPM-SG}&quot;,&#xd;
+    &quot;issueTime&quot;: &quot;2021-04-22T12:00:00.500Z&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">127.0.0.1</stringProp>
+          <stringProp name="HTTPSampler.port">8090</stringProp>
+          <stringProp name="HTTPSampler.path">inbound/message/send/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">false</boolProp>
+          <boolProp name="HTTPSampler.image_parser">false</boolProp>
+          <boolProp name="HTTPSampler.concurrentDwn">false</boolProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <boolProp name="HTTPSampler.md5">false</boolProp>
+          <intProp name="HTTPSampler.ipSourceType">0</intProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Sender-System-Id</stringProp>
+                <stringProp name="Header.value">access_manager</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Receiver-System-Id</stringProp>
+                <stringProp name="Header.value">message_processor</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">var date = new Date();
+vars.put(&quot;date&quot;, date.toISOString().slice(0,10).replace(/-/g,&quot;&quot;));
+var counter = vars.get(&quot;refCounter&quot;);
+vars.put(&quot;refCounter&quot;, ++counter);
+vars.put(&quot;ref&quot;, (&quot;0000&quot;+counter).slice(-4));</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+        <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="Reset status" enabled="true">
+          <collectionProp name="UserParameters.names">
+            <stringProp name="-699501065">POLLING_SESSION_STATUS</stringProp>
+          </collectionProp>
+          <collectionProp name="UserParameters.thread_values">
+            <collectionProp name="-97720822">
+              <stringProp name="35394935">PENDING</stringProp>
+            </collectionProp>
+          </collectionProp>
+          <boolProp name="UserParameters.per_iteration">true</boolProp>
+        </UserParameters>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">stoptest</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <stringProp name="LoopController.loops">1</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.delayedStart">false</boolProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="Repeat Till Admin 007 Event Returned" enabled="true">
+          <stringProp name="WhileController.condition">${__javaScript(vars.get(&quot;POLLING_SESSION_STATUS&quot;) != &quot;COMPLETED&quot;)}</stringProp>
+        </WhileController>
+        <hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Admin 007 Received Request" enabled="true">
+            <stringProp name="dataSource">Test_Pool</stringProp>
+            <stringProp name="query">select * from tb_outgoing_req_log torl 
+where torl.req_msg_type  = &apos;admi.007.001.01&apos;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+            <stringProp name="resultSetMaxRows"></stringProp>
+            <stringProp name="resultVariable">dataFromDB</stringProp>
+            <stringProp name="variableNames"></stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">300</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">if (vars.getObject(&quot;dataFromDB&quot;).size() == 5) {
+	vars.put(&quot;POLLING_SESSION_STATUS&quot;, &quot;COMPLETED&quot;);	
+}
+</stringProp>
+            <stringProp name="scriptLanguage">javascript</stringProp>
+          </JSR223PostProcessor>
+          <hashTree/>
+          <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <url>true</url>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="StatGraphVisualizer" testclass="ResultCollector" testname="Aggregate Graph" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
